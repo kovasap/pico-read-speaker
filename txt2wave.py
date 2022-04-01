@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #Transform text in wav audio
 #exec : text2wav.py
@@ -70,7 +70,7 @@ def text_to_speech(txt, lang):
             value =' '.join(value)
             print("Vocalising in %s ..." % (lang))
             os.system('pico2wave -l %s -w /tmp/out.wav "%s" | ffmpeg -i - -ar 48000 -ac 1 -ab 64k -f mp3 %d.mp3 -y' % (lang, value, index + 1))
-            os.system('cat %d.mp3 >> audio_book.mp3 && rm %d.mp3' % (index + 1, index + 1))
+            os.system('cat %d.mp3 >> audio_book.mp3' % (index + 1))
     os.system('rm /tmp/out.wav')
 
 def print_usage():
